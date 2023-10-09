@@ -1,70 +1,104 @@
-# Getting Started with Create React App
+# Online Compiler
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 1. 项目介绍
 
-## Available Scripts
+【V1.0 版本介绍】：
 
-In the project directory, you can run:
+本项目为基于 Django 与 React 开发的在线编译器与计算器，采用前后端分离的架构模式，可以很轻易地部署至云服务器上或用 Docker 容器进行迁移部署。
 
-### `npm start`
+本项目前端界面基于 React + Bootstrap 开发，计算器页面的各组件间的状态由 Redux 维护，通过 `npm` 部署并一键打包静态文件至后端，后端采用 Django 框架实现注册/登录/登出等 API 接口，同时使用 Django 渲染前端界面，解决不同端口的跨域问题。
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Django 超级管理员账户：
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+ - 用户名：`admin`
+ - 密码：`admin`
 
-### `npm test`
+【V2.0 更新】：
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+添加了网页端在线编译器，前端由 React 结合 CodeMirror 搭建，后端运用 Python Subprocess 子进程相关技术，实现在线编辑与运行代码等功能（V2.0 版本仅支持 C++、Python）。
 
-### `npm run build`
+在线编辑器 Demo：
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Code_Editor_Demo](./demo/Code_Editer_Demo.gif)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+ - V2.1 更新：实现 C++、Python 的基础代码补全功能（关键字补全）。
+ - V2.2 更新：导航栏添加实时显示当前时间功能。
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+【V3.0 更新】：
 
-### `npm run eject`
+将定时器由 `setInterval` 换为 `setPromiseInterval`，修复 `setInterval` 导致长时间运行网站后产生的严重卡顿问题。
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+在 About 页面中添加了由 SMTP 协议支持的向开发者匿名发送邮件的功能，给予广大用户反馈意见的途径，此外还添加了修改用户个人信息的页面。
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+邮件发送与修改用户信息 Demo：
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+![Email_Profile_Demo](./demo/Email_Profile_Demo.gif)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 2. 环境要求
 
-## Learn More
+### 2.1 Python env
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+V1.0 版本环境：
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+ - Django 4.2.5：`pip install Django`
+ - django-cors-headers 4.2.0：`pip install django-cors-headers`
 
-### Code Splitting
+V2.0 更新：
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+ - psutil 5.9.5：`pip install psutil`
 
-### Analyzing the Bundle Size
+### 2.2 Node modules
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+V1.0 版本环境：
 
-### Making a Progressive Web App
+ - 默认环境（创建 React 项目时产生）：`create-react-app online_compiler`
+ - bootstrap 5.3.1：`npm i bootstrap`
+ - jquery 3.7.1：`npm i jquery`
+ - react-router-dom 18.2.0：`npm i react-router-dom`
+ - redux 4.2.1 & react-redux 8.1.2 & @reduxjs/toolkit 1.9.5：`npm i redux react-redux @reduxjs/toolkit`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+V2.0 更新：
 
-### Advanced Configuration
+ - @uiw/react-codemirror 4.21.13：`npm install @uiw/react-codemirror --save`
+ - @uiw/codemirror-extensions-langs 4.21.13：`npm install @uiw/codemirror-extensions-langs`
+ - @uiw/codemirror-theme-github 4.21.13：`npm install @uiw/codemirror-theme-github`
+ - @uiw/codemirror-theme-okaidia 4.21.13：`npm install @uiw/codemirror-theme-okaidia`
+ - @uiw/codemirror-theme-vscode 4.21.13：`npm install @uiw/codemirror-theme-vscode`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+V2.1 更新：
 
-### Deployment
+ - @codemirror/autocomplete 6.9.1：`npm install @codemirror/autocomplete`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+V2.2 更新：
 
-### `npm run build` fails to minify
+ - moment 2.29.4：`npm install moment`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+V3.0 更新：
+
+ - set-promise-interval 1.0.8：`npm install set-promise-interval`
+
+一键安装 `package.json` 里的所有依赖文件：
+
+```shell
+npm install
+```
+
+## 3. 启动相关服务
+
+ - 创建 Python 虚拟环境：`python -m venv venv`
+ - 启动 Python 虚拟环境：`.\venv\Scripts\Activate.ps1`
+ - 启动 React 前端项目：`npm start`
+ - 打包 React 前端项目：`npm run build`（React 项目打包后将 `index.html`、`main.xxx.js`、`main.xxx.css` 三个文件放到 Django 项目对应的目录下即可部署至 Django 服务端上）
+ - 启动 Django 后端项目：`python manage.py runserver localhost:8000`
+
+## 4. 部署至云服务器
+
+部署至云服务器上需要将前端中的 HTTP 请求 API 改为云服务器的地址，目前有向后端发送请求的文件为：
+
+ - `src/components/app.jsx`
+ - `src/components/navbar.jsx`
+ - `src/components/content/login.jsx`
+ - `src/components/content/register.jsx`
+ - `src/components/content/about.jsx`
+ - `src/components/content/profile.jsx`
+ - `src/components/content/editor/editorFooter.jsx`
