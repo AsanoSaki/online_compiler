@@ -63,59 +63,63 @@ class Profile extends Component {
 
     render() {
         return (
-            <Card>
-                <h3>Profile</h3>
-                <hr />
-                <form>
-                    <div className="mb-3 row justify-content-center">
-                        <label htmlFor="inputUsername" className="col-sm-2 col-form-label" style={{textAlign: 'right'}}>Username:</label>
-                        <div className="col-sm-5">
-                            <input type="text" className="form-control" id="inputUsername" defaultValue={this.props.username} />
+            <Card header={<h3>Profile</h3>}>
+                <div className="card" style={{width: '50%', margin: '8rem auto', boxShadow: '5px 5px 20px #aaa'}}>
+                    <div className="card-header text-center">
+                        <h1>个人信息</h1>
+                    </div>
+                    <form style={{margin: '1rem'}}>
+                        <div className="mb-3 row justify-content-center">
+                            <label htmlFor="inputUsername" className="col-md-3 col-form-label" style={{textAlign: 'right'}}>Username:</label>
+                            <div className="col-md-7">
+                                <input type="text" className="form-control" id="inputUsername" defaultValue={this.props.username} />
+                            </div>
                         </div>
-                    </div>
-                    <div className="mb-3 row justify-content-center">
-                        <label htmlFor="inputEmail" className="col-sm-2 col-form-label" style={{textAlign: 'right'}}>Email:</label>
-                        <div className="col-sm-5">
-                            <input type="email" className="form-control" id="inputEmail" defaultValue={this.props.email} />
+                        <div className="mb-3 row justify-content-center">
+                            <label htmlFor="inputEmail" className="col-md-3 col-form-label" style={{textAlign: 'right'}}>Email:</label>
+                            <div className="col-md-7">
+                                <input type="email" className="form-control" id="inputEmail" defaultValue={this.props.email} />
+                            </div>
                         </div>
-                    </div>
-                    <div className="mb-3 row justify-content-center">
-                        <label htmlFor="inputIntroduction" className="col-sm-2 col-form-label" style={{textAlign: 'right'}}>Introduction:</label>
-                        <div className="col-sm-5">
-                            <input type="text" className="form-control" id="inputIntroduction" defaultValue={this.props.intro} />
+                        <div className="mb-3 row justify-content-center">
+                            <label htmlFor="inputIntroduction" className="col-md-3 col-form-label" style={{textAlign: 'right'}}>Introduction:</label>
+                            <div className="col-md-7">
+                                <input type="text" className="form-control" id="inputIntroduction" defaultValue={this.props.intro} />
+                            </div>
                         </div>
-                    </div>
-                    <div className="mb-3 row justify-content-center">
-                        <label htmlFor="inputDateJoined" className="col-sm-2 col-form-label" style={{textAlign: 'right'}}>Date Joined:</label>
-                        <div className="col-sm-5">
-                            <input type="text" className="form-control" id="inputDateJoined" readOnly value={this.props.date_joined} />
+                        <div className="mb-3 row justify-content-center">
+                            <label htmlFor="inputDateJoined" className="col-md-3 col-form-label" style={{textAlign: 'right'}}>Date Joined:</label>
+                            <div className="col-md-7">
+                                <input type="text" className="form-control" id="inputDateJoined" readOnly value={this.props.date_joined} />
+                            </div>
                         </div>
-                    </div>
-                    <div className="mb-3 text-center">
-                        <label className="col-sm-1 col-form-label">Gender:</label>
-                        <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="radio" name="radioOptions" id="male" value="male" />
-                            <label className="form-check-label" htmlFor="male">Male</label>
+                        <div className="mb-3 text-center">
+                            <label className="col-md-2 col-form-label">Gender:</label>
+                            <div className="form-check form-check-inline">
+                                <input className="form-check-input" type="radio" name="radioOptions" id="male" value="male" />
+                                <label className="form-check-label" htmlFor="male">Male</label>
+                            </div>
+                            <div className="form-check form-check-inline">
+                                <input className="form-check-input" type="radio" name="radioOptions" id="female" value="female" />
+                                <label className="form-check-label" htmlFor="female">Female</label>
+                            </div>
+                            <div className="form-check form-check-inline">
+                                <input className="form-check-input" type="radio" name="radioOptions" id="other" value="other" />
+                                <label className="form-check-label" htmlFor="other">Other</label>
+                            </div>
                         </div>
-                        <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="radio" name="radioOptions" id="female" value="female" />
-                            <label className="form-check-label" htmlFor="female">Female</label>
+                        <div style={{fontSize: '1rem', color: 'red', textAlign: 'center', marginBottom: '15px'}}>
+                            {this.state.error_message}
                         </div>
-                        <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="radio" name="radioOptions" id="other" value="other" />
-                            <label className="form-check-label" htmlFor="other">Other</label>
+                        <div className="d-grid gap-2 col-4 mx-auto">
+                            <button onClick={this.handleUpdate} className="btn btn-outline-success" type="button">Update Information</button>
                         </div>
-                    </div>
-                    <div style={{fontSize: '1rem', color: 'red', textAlign: 'center', marginBottom: '15px'}}>
-                        {this.state.error_message}
-                    </div>
-                    <div className="d-grid gap-2 col-2 mx-auto">
-                        <button onClick={this.handleUpdate} className="btn btn-outline-success" type="button">Update Information</button>
-                    </div>
-                    <div id='update_success' style={{fontWeight: 500, fontSize: '1.5rem', color: 'rgb(68, 157, 68)', textAlign: 'center'}}>
-                        Update successfully!
-                    </div>
-                </form>
+                        <div id='update_success' style={{fontWeight: 500, fontSize: '1.5rem', color: 'rgb(68, 157, 68)', textAlign: 'center'}}>
+                            Update successfully!
+                        </div>
+                    </form>
+                </div>
+                
             </Card>
         );
     }

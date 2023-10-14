@@ -5,9 +5,7 @@ class Home extends Component {
     state = {  }
     render() {
         return (
-            <Card>
-                <h3>Home</h3>
-                <hr />
+            <Card header={<h3>Home</h3>}>
                 <p>本项目为基于 React 与 Django 开发的在线计算器以及代码编译器~</p>
                 <p>代码编译器由 CodeMirror 插件支持，目前支持的语言为：C++、Python</p>
                 <p>项目前端页面组件来源于 Bootstrap</p>

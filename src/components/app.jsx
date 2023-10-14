@@ -14,11 +14,11 @@ import $ from 'jquery';
 
 class App extends Component {
     state = {
-        is_login: true,  // 是否登录
+        is_login: false,  // 是否登录
         username: 'AsanoSaki',  // 登录成功后保存用户名
         email: '1195595343@qq.com',  // 邮箱
         intro: '这个人很懒，什么也没留下',  // 个人介绍
-        date_joined: '2023年',  // 注册时间
+        date_joined: '2023-10-01',  // 注册时间
         gender: 'Other',  // 性别
     };
 

@@ -28,11 +28,13 @@ Django 超级管理员账户：
 
 将定时器由 `setInterval` 换为 `setPromiseInterval`，修复 `setInterval` 导致长时间运行网站后产生的严重卡顿问题。
 
-在 About 页面中添加了由 SMTP 协议支持的向开发者匿名发送邮件的功能，给予广大用户反馈意见的途径，此外还添加了修改用户个人信息的页面。
+在 About 页面中添加了由 SMTP 协议支持的向开发者匿名发送邮件的功能（需要在 `settings.py` 文件中配置你的邮箱信息），给予广大用户反馈意见的途径，此外还添加了修改用户个人信息的页面。
 
 邮件发送与修改用户信息 Demo：
 
 ![Email_Profile_Demo](./demo/Email_Profile_Demo.gif)
+
+ - V3.1 更新：优化 UI，修复部分组件的多媒体自适应。
 
 ## 2. 环境要求
 
@@ -76,6 +78,10 @@ V2.2 更新：
 V3.0 更新：
 
  - set-promise-interval 1.0.8：`npm install set-promise-interval`
+
+V3.1 更新：
+
+ - bootstrap-icons 1.11.1：`npm i bootstrap-icons`
 
 一键安装 `package.json` 里的所有依赖文件：
 

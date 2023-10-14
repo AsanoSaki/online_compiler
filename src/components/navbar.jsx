@@ -33,7 +33,10 @@ class NavBar extends Component {
         if (this.props.is_login) {
             return (
                 <li className="nav-item">
-                    <Link className="nav-link" to="/calculator">💡Calculator</Link>
+                    <Link className="nav-link" to="/calculator">
+                        <i className="bi bi-calculator-fill" style={{marginRight: '5px'}}></i>
+                        Calculator
+                    </Link>
                 </li>
             )
         } else {
@@ -45,7 +48,10 @@ class NavBar extends Component {
         if (this.props.is_login) {
             return (
                 <li className="nav-item">
-                    <Link className="nav-link" to="/editor">💻Editor</Link>
+                    <Link className="nav-link" to="/editor">
+                        <i className="bi bi-code-slash" style={{marginRight: '5px'}}></i>
+                        Editor
+                    </Link>
                 </li>
             )
         } else {
@@ -62,11 +68,24 @@ class NavBar extends Component {
                             {this.props.username}
                         </span>
                         <ul className="dropdown-menu">
-                            <li><Link className="dropdown-item" to="/myspace">My Space</Link></li>
-                            <li><Link className="dropdown-item" to="/profile">Profile</Link></li>
+                            <li>
+                                <Link className="dropdown-item" to="/myspace">
+                                    <i className="bi bi-person-fill" style={{marginRight: '5px'}}></i>
+                                    My Space
+                                </Link>
+                            </li>
+                            <li>
+                                <Link className="dropdown-item" to="/profile">
+                                    <i className="bi bi-person-vcard-fill" style={{marginRight: '5px'}}></i>
+                                    Profile
+                                </Link>
+                            </li>
                             <hr />
                             <li>
-                                <span style={{cursor: 'pointer'}} onClick={this.handleLogout} className="dropdown-item">Logout</span>
+                                <span style={{cursor: 'pointer'}} onClick={this.handleLogout} className="dropdown-item">
+                                    <i className="bi bi-door-closed-fill" style={{marginRight: '5px'}}></i>
+                                    Logout
+                                </span>
                             </li>
                         </ul>
                     </li>
@@ -76,10 +95,16 @@ class NavBar extends Component {
             return (
                 <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li className="nav-item">
-                        <Link className="nav-link" to="/login">Login</Link>
+                        <Link className="nav-link" to="/login">
+                            <i className="bi bi-door-open-fill" style={{marginRight: '5px'}}></i>
+                            Login
+                        </Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to="/register">Register</Link>
+                        <Link className="nav-link" to="/register">
+                            <i className="bi bi-person-fill-add" style={{marginRight: '5px'}}></i>
+                            Register
+                        </Link>
                     </li>
                 </ul>
             )
@@ -98,15 +123,22 @@ class NavBar extends Component {
                     <div className="collapse navbar-collapse" id="navbarText">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <Link className="nav-link" to="/home">🏠Home</Link>
+                                <Link className="nav-link" to="/home">
+                                    <i className="bi bi-house-fill" style={{marginRight: '5px'}}></i>
+                                    Home
+                                </Link>
                             </li>
                             {this.render_calculator()}
                             {this.render_editor()}
                             <li className="nav-item">
-                                <Link className="nav-link" to="/about">📨About</Link>
+                                <Link className="nav-link" to="/about">
+                                    <i className="bi bi-question-circle-fill" style={{marginRight: '5px'}}></i>
+                                    About
+                                </Link>
                             </li>
                             <li className="nav-item" style={{fontWeight: 500, fontSize: '1.6rem', color: 'rgb(132, 202, 240)', marginLeft: '10px'}}>
-                                ⏱️{this.state.time}
+                                <i className="bi bi-alarm-fill" style={{marginRight: '5px'}}></i>
+                                {this.state.time}
                             </li>
                         </ul>
                         {this.render_userinfo()}

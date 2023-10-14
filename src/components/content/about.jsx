@@ -44,12 +44,10 @@ class About extends Component {
 
     render() {
         return (
-            <Card>
-                <h3>About</h3>
-                <hr />
-                <div className='row'>
-                    <div className='col-sm-4'>
-                        <div className="card" style={{width: '20rem', margin: '10rem 5rem'}}>
+            <Card header={<h3>About</h3>}>
+                <div className='row justify-content-md-center'>
+                    <div className='col-md-4'>
+                        <div className="card">
                             <div className="card-header">
                                 About Me
                             </div>
@@ -71,8 +69,8 @@ class About extends Component {
                             </div>
                         </div>
                     </div>
-                    <div className='col-sm-8'>
-                        <div className="card" style={{width: '40rem', margin: '0 5rem'}}>
+                    <div className='col-md-7'>
+                        <div className="card">
                             <div className="card-header">
                                 Contact Me
                             </div>

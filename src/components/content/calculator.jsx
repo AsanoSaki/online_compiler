@@ -20,9 +20,7 @@ class Calculator extends Component {
 
     render() {
         return (
-            <Card>
-                <h3>Calculator</h3>
-                <hr />
+            <Card header={<h3>Calculator</h3>}>
                 <div className="calculator">
                     <div className="output">
                         <div className="last_output">

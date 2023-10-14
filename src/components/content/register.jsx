@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Card from './card';
+import { Link } from 'react-router-dom';
 import $ from 'jquery';
 
 class Register extends Component {
@@ -43,18 +44,31 @@ class Register extends Component {
 
     render() {
         return (
-            <Card>
-                <h3>Register</h3>
-                <hr />
-                <div className="container">
+            <Card
+                header={
+                    <React.Fragment>
+                        <h3 style={{display: 'inline-block'}}>Register</h3>
+                        <div style={{float: 'right', height: '2.5rem', lineHeight: '2.5rem'}}>
+                            <span>已有账号？</span>
+                            <Link to="/login" style={{textDecoration: 'none'}}>{"去登录 >"}</Link>
+                        </div>
+                        <div style={{clear: 'both'}}></div>
+                    </React.Fragment>
+                }
+            >
+                <div className="card" style={{width: '50%', margin: '8rem auto', boxShadow: '5px 5px 20px #aaa'}}>
+                    <div className="card-header text-center">
+                        <h1>用户注册</h1>
+                    </div>
                     <div className="row justify-content-md-center">
-                        <div className="col col-sm-4">
-                            <form>
+                        <div className="col col-md-8">
+                            <form style={{margin: '1rem'}}>
                                 <div className="mb-3">
                                     <label htmlFor="inputUsername" className="form-label">Username</label>
                                     <input
                                         onChange={(e) => {this.setState({username: e.target.value})}}
-                                        type="text" className="form-control" id="inputUsername" aria-describedby="usernameHelp"
+                                        type="text" className="form-control" id="inputUsername"
+                                        aria-describedby="usernameHelp" placeholder="请输入用户名"
                                     />
                                 </div>
                                 <div className="mb-3">
@@ -62,6 +76,7 @@ class Register extends Component {
                                     <input
                                         onChange={(e) => {this.setState({password: e.target.value})}}
                                         type="password" className="form-control" id="inputPassword"
+                                        placeholder="请输入密码"
                                     />
                                 </div>
                                 <div className="mb-3">
@@ -69,6 +84,7 @@ class Register extends Component {
                                     <input
                                         onChange={(e) => {this.setState({confirm_password: e.target.value})}}
                                         type="password" className="form-control" id="inputConfirmPassword"
+                                        placeholder="请再次输入密码"
                                     />
                                 </div>
                                 <div style={{fontSize: '1rem', color: 'red'}}>
