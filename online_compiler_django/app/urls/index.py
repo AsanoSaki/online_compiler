@@ -9,12 +9,12 @@ from app.views.sendEmail import sendEmail
 from app.views.update import update
 
 urlpatterns = [
-    path('login/', mylogin, name='login'),
-    path('logout/', mylogout, name='logout'),
-    path('register/', register, name='register'),
-    path('getinfo/', getinfo, name='getinfo'),
-    path('runcode/', runCode, name='runcode'),
-    path('sendemail/', sendEmail, name='sendemail'),
-    path('update/', update, name='update'),
+    path('api/login/', mylogin, name='login'),
+    path('api/logout/', mylogout, name='logout'),
+    path('api/register/', register, name='register'),
+    path('api/getinfo/', getinfo, name='getinfo'),
+    path('api/runcode/', runCode, name='runcode'),
+    path('api/sendemail/', sendEmail, name='sendemail'),
+    path('api/update/', update, name='update'),
     re_path('.*', index, name='index'),  # 正则匹配所有路径，除了上面几个路径之外均渲染Web页面
 ]

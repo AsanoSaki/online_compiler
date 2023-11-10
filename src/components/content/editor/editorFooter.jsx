@@ -73,8 +73,8 @@ class EditorFooter extends Component {
     console.log("input:", code_input);
     this.setState({ run_status: "Running" }); // 设置run_status为执行代码中
     $.ajax({
-      url: "http://localhost:8000/runcode/",
-      // url: 'http://8.130.54.44:8000/runcode/',  // 部署在云服务器上
+      url: "http://localhost:8000/api/runcode/",
+      // url: 'http://8.130.54.44:8000/api/runcode/',  // 部署在云服务器上
       type: "GET",
       data: {
         value: this.props.value,

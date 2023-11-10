@@ -14,7 +14,7 @@ import $ from "jquery";
 
 class App extends Component {
   state = {
-    is_login: false, // 是否登录
+    is_login: true, // 是否登录
     username: "AsanoSaki", // 登录成功后保存用户名
     email: "1195595343@qq.com", // 邮箱
     intro: "这个人很懒，什么也没留下", // 个人介绍
@@ -25,13 +25,13 @@ class App extends Component {
   componentDidMount() {
     // Ajax一般写在这个函数里，当组件被挂载完成后执行函数
     $.ajax({
-      url: "http://localhost:8000/getinfo/",
-      // url: 'http://8.130.54.44:8000/getinfo/',  // 部署在云服务器上
+      url: "http://localhost:8000/api/getinfo/",
+      // url: 'http://8.130.54.44:8000/api/getinfo/',  // 部署在云服务器上
       type: "GET",
       success: (resp) => {
         console.log(resp);
         if (resp.result === "success") {
-          // 本地访问由于跨域问题没办法成功登录
+          // 本地访问由于跨域问题没办法成功登录，需要打包文件至Django后端渲染才能成功登录
           this.setState({
             is_login: true,
             username: resp.username,

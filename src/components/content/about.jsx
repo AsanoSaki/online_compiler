@@ -21,8 +21,8 @@ class About extends Component {
     let $send_status = $("#send_status");
 
     $.ajax({
-      url: "http://localhost:8000/sendemail/",
-      // url: 'http://8.130.54.44:8000/sendemail/',  // 部署在云服务器上
+      url: "http://localhost:8000/api/sendemail/",
+      // url: 'http://8.130.54.44:8000/api/sendemail/',  // 部署在云服务器上
       type: "GET",
       data: {
         message: message,

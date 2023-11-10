@@ -21,8 +21,8 @@ class Login extends Component {
     } else {
       // 用jQuery向后端请求登录
       $.ajax({
-        url: "http://localhost:8000/login/",
-        // url: 'http://8.130.54.44:8000/login/',  // 部署在云服务器上
+        url: "http://localhost:8000/api/login/",
+        // url: 'http://8.130.54.44:8000/api/login/',  // 部署在云服务器上
         type: "GET",
         data: {
           username: this.state.username,

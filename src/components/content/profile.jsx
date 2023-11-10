@@ -35,8 +35,8 @@ class Profile extends Component {
     this.setState({ error_message: "" });
     let $update_success = $("#update_success");
     $.ajax({
-      url: "http://localhost:8000/update/",
-      // url: 'http://8.130.54.44:8000/update/',  // 部署在云服务器上
+      url: "http://localhost:8000/api/update/",
+      // url: 'http://8.130.54.44:8000/api/update/',  // 部署在云服务器上
       type: "GET",
       data: {
         username: username,
